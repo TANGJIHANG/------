@@ -10,15 +10,9 @@ void swap(int *a, int *b)
 
 void swapArr(int arr[], int len)
 {
-
     for (int i = 0; i < len / 2; i++)
     {
-        swap(arr[i], arr[len - i]);
-    }
-
-    for (int i = 0; i < len / 2; i++)
-    {
-        swap(arr[i], arr[len - 1]);
+        swap(&arr[i], &arr[len - i - 1]);
     }
 }
 
@@ -38,11 +32,18 @@ int main()
         printf("%d\n", arr[i]);
     }
     printf("---------\n");
-    swapArr(arr, 5);
-
+    printf("Before swap:\n");
     for (int i = 0; i < 5; i++)
     {
-        printf("%d\n", arr[i]);
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+    
+    swapArr(arr, 5);
+
+    printf("After swap:\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d\n", i, arr[i]);
     }
 
     return 0;
